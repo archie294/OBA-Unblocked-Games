@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Gamepad2, X, Maximize2, Search } from 'lucide-react';
+import { Gamepad2, X, Maximize2, Search, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import gamesData from './games.json';
 
@@ -23,6 +23,11 @@ export default function App() {
   const filteredGames = gamesData.filter(game =>
     game.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  const requestEmail = 'amay@bushfield.co.uk';
+  const requestSubject = encodeURIComponent('Game Request - OBA Unblocked Games');
+  const requestBody = encodeURIComponent('I would like to request the following game:\n\nGame Name: \nGame URL (if known): ');
+  const mailtoUrl = `mailto:${requestEmail}?subject=${requestSubject}&body=${requestBody}`;
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-purple-500 selection:text-white">
@@ -54,6 +59,13 @@ export default function App() {
           <div className="flex items-center gap-4 text-sm font-medium text-white/60">
             <button className="hover:text-white transition-colors cursor-pointer">Popular</button>
             <button className="hover:text-white transition-colors cursor-pointer">New</button>
+            <a 
+              href={mailtoUrl}
+              className="flex items-center gap-1.5 bg-purple-600/20 hover:bg-purple-600 text-purple-400 hover:text-white px-3 py-1.5 rounded-full transition-all cursor-pointer border border-purple-500/30 no-underline"
+            >
+              <Mail className="w-3.5 h-3.5" />
+              Request Game
+            </a>
           </div>
         </div>
       </nav>
@@ -182,6 +194,7 @@ export default function App() {
           <div className="flex gap-8 text-sm text-white/40">
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href={mailtoUrl} className="hover:text-white transition-colors cursor-pointer no-underline">Request a Game</a>
             <a href="#" className="hover:text-white transition-colors">Contact Us</a>
           </div>
           <p className="text-sm text-white/20">© 2026 Unblocked Games Hub. All rights reserved.</p>
