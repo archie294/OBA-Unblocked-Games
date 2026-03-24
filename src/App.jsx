@@ -51,8 +51,13 @@ export default function App() {
       <nav className="border-b border-white/10 bg-black/50 backdrop-blur-md sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center shadow-[0_0_20px_rgba(147,51,234,0.3)]">
-              <Gamepad2 className="w-6 h-6" />
+            <div className="w-10 h-10 rounded-lg overflow-hidden shadow-[0_0_20px_rgba(147,51,234,0.3)]">
+              <img 
+                src="https://i.postimg.cc/yxGVx9fR/Gemini-Generated-Image-3lqjkw3lqjkw3lqj.png" 
+                alt="OBA Logo" 
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
             </div>
             <h1 className="text-xl font-bold tracking-tight hidden sm:block">
               OBA UNBLOCKED<span className="text-purple-500">GAMES</span>
@@ -230,8 +235,13 @@ export default function App() {
             >
               <div className="p-4 border-b border-white/10 flex items-center justify-between bg-white/5">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-purple-600 rounded flex items-center justify-center">
-                    <Gamepad2 className="w-4 h-4" />
+                  <div className="w-8 h-8 rounded overflow-hidden">
+                    <img 
+                      src="https://i.postimg.cc/yxGVx9fR/Gemini-Generated-Image-3lqjkw3lqjkw3lqj.png" 
+                      alt="OBA Logo" 
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
                   </div>
                   <h2 className="font-bold text-lg">{selectedGame.title}</h2>
                 </div>
@@ -273,7 +283,12 @@ export default function App() {
       <footer className="border-t border-white/10 py-12 bg-black">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex items-center gap-2 opacity-50">
-            <Gamepad2 className="w-5 h-5" />
+            <img 
+              src="https://i.postimg.cc/yxGVx9fR/Gemini-Generated-Image-3lqjkw3lqjkw3lqj.png" 
+              alt="OBA Logo" 
+              className="w-5 h-5 rounded-sm object-cover"
+              referrerPolicy="no-referrer"
+            />
             <span className="font-bold uppercase tracking-tight">OBA Unblocked Games</span>
           </div>
           <div className="flex gap-8 text-sm text-white/40">
