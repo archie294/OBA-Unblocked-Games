@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Gamepad2, X, Maximize2, Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import gamesData from './games.json';
@@ -6,6 +6,19 @@ import gamesData from './games.json';
 export default function App() {
   const [selectedGame, setSelectedGame] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const iframeContainerRef = useRef(null);
+
+  const handleFullscreen = () => {
+    if (iframeContainerRef.current) {
+      if (iframeContainerRef.current.requestFullscreen) {
+        iframeContainerRef.current.requestFullscreen();
+      } else if (iframeContainerRef.current.webkitRequestFullscreen) {
+        iframeContainerRef.current.webkitRequestFullscreen();
+      } else if (iframeContainerRef.current.msRequestFullscreen) {
+        iframeContainerRef.current.msRequestFullscreen();
+      }
+    }
+  };
 
   const filteredGames = gamesData.filter(game =>
     game.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -21,7 +34,7 @@ export default function App() {
               <Gamepad2 className="w-6 h-6" />
             </div>
             <h1 className="text-xl font-bold tracking-tight hidden sm:block">
-              UNBLOCKED<span className="text-purple-500">GAMES</span>
+              OBA UNBLOCKED<span className="text-purple-500">GAMES</span>
             </h1>
           </div>
 
@@ -132,19 +145,26 @@ export default function App() {
                   <X className="w-6 h-6" />
                 </button>
               </div>
-              <div className="flex-1 bg-black relative">
+              <div className="flex-1 bg-black relative" ref={iframeContainerRef}>
                 <iframe
                   src={selectedGame.url}
                   className="w-full h-full border-none"
                   title={selectedGame.title}
+                  allow="autoplay; fullscreen; keyboard-attach; accelerometer; gyroscope; gamepad; microphone; camera; midi; selection-copy; selection-paste"
                   allowFullScreen
                 />
               </div>
               <div className="p-4 bg-white/5 flex items-center justify-between text-sm text-white/40">
                 <p>Playing: {selectedGame.title}</p>
                 <div className="flex gap-4">
-                  <button className="hover:text-white transition-colors">Report Issue</button>
-                  <button className="hover:text-white transition-colors">Full Screen</button>
+                  <button className="hover:text-white transition-colors cursor-pointer">Report Issue</button>
+                  <button 
+                    onClick={handleFullscreen}
+                    className="hover:text-white transition-colors flex items-center gap-1 cursor-pointer"
+                  >
+                    <Maximize2 className="w-4 h-4" />
+                    Full Screen
+                  </button>
                 </div>
               </div>
             </motion.div>
@@ -157,7 +177,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex items-center gap-2 opacity-50">
             <Gamepad2 className="w-5 h-5" />
-            <span className="font-bold">UNBLOCKEDGAMES</span>
+            <span className="font-bold uppercase tracking-tight">OBA Unblocked Games</span>
           </div>
           <div className="flex gap-8 text-sm text-white/40">
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>

@@ -1,38 +1,14 @@
 [
   {
-    "id": "1",
-    "title": "2048",
-    "url": "https://play2048.co/",
-    "thumbnail": "https://picsum.photos/seed/2048/400/300"
-  },
-  {
-    "id": "2",
-    "title": "Tetris",
-    "url": "https://tetris.com/play-tetris",
-    "thumbnail": "https://picsum.photos/seed/tetris/400/300"
-  },
-  {
-    "id": "3",
-    "title": "Snake",
-    "url": "https://www.google.com/logos/2010/pacman10-i.html",
-    "thumbnail": "https://picsum.photos/seed/snake/400/300"
-  },
-  {
-    "id": "4",
-    "title": "Doodle Jump",
-    "url": "https://doodlejump.io/",
-    "thumbnail": "https://picsum.photos/seed/doodle/400/300"
-  },
-  {
-    "id": "5",
-    "title": "Slope",
-    "url": "https://www.google.com/logos/2010/pacman10-i.html",
+    "id": "slope-2025",
+    "title": "Slope V2",
+    "url": "https://storage.y8.com/y8-studio/unity_webgl/Gani/slope-game_2025_v3/?key=9757549&value=80527",
     "thumbnail": "https://picsum.photos/seed/slope/400/300"
   },
   {
-    "id": "6",
-    "title": "Pacman",
-    "url": "https://www.google.com/logos/2010/pacman10-i.html",
-    "thumbnail": "https://picsum.photos/seed/pacman/400/300"
+    "id": "moto-x3m",
+    "title": "Moto X3M",
+    "url": "https://www.y8.com/embed/moto_x3m",
+    "thumbnail": "https://picsum.photos/seed/moto/400/300"
   }
 ]
