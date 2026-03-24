@@ -3,120 +3,140 @@
     "id": "slope-2025",
     "title": "Slope V2",
     "url": "https://storage.y8.com/y8-studio/unity_webgl/Gani/slope-game_2025_v3/?key=9757549&value=80527",
-    "thumbnail": "https://picsum.photos/seed/slope/400/300"
+    "thumbnail": "https://picsum.photos/seed/slope/400/300",
+    "category": "Action"
   },
   {
     "id": "moto-x3m",
     "title": "Moto X3M",
     "url": "https://storage.y8.com/y8-studio/html5/madpuffers/MotoX3M_1_new/?key=2365427&value=87599",
-    "thumbnail": "https://picsum.photos/seed/moto/400/300"
+    "thumbnail": "https://picsum.photos/seed/moto/400/300",
+    "category": "Racing"
   },
   {
     "id": "football",
     "title": "Football",
     "url": "https://storage.y8.com/y8-studio/html5/madpuffers/Football_new/?key=2365427&value=96587",
-    "thumbnail": "https://picsum.photos/seed/football/400/300"
+    "thumbnail": "https://picsum.photos/seed/football/400/300",
+    "category": "Sports"
   },
   {
     "id": "precise-bowling",
     "title": "Precise Bowling",
     "url": "https://storage.y8.com/y8-studio/unity_webgl/bilalqadri/precise_bowling/?key=y8&value=default",
-    "thumbnail": "https://picsum.photos/seed/bowling/400/300"
+    "thumbnail": "https://picsum.photos/seed/bowling/400/300",
+    "category": "Sports"
   },
   {
     "id": "ball-fall-3d",
     "title": "Ball Fall 3D",
     "url": "https://storage.y8.com/y8-studio/unity_webgl/gamosoftstudios/BallFall3D-2022-v1/index.html?key=6842727&ratio_tolerant=true&value=165829",
-    "thumbnail": "https://picsum.photos/seed/ballfall/400/300"
+    "thumbnail": "https://picsum.photos/seed/ballfall/400/300",
+    "category": "Arcade"
   },
   {
     "id": "wave-dash",
     "title": "Wave Dash",
     "url": "https://storage.y8.com/y8-studio/unity_webgl/gamosoftstudios/y8_wave-dash_y8_2_8_0_32bt/?key=y8&value=default",
-    "thumbnail": "https://picsum.photos/seed/wavedash/400/300"
+    "thumbnail": "https://picsum.photos/seed/wavedash/400/300",
+    "category": "Arcade"
   },
   {
     "id": "three-cups",
     "title": "Three Cups",
     "url": "https://storage.y8.com/y8-studio/html5/Spicy/three-cups_v4/?key=y8&value=default",
-    "thumbnail": "https://picsum.photos/seed/threecups/400/300"
+    "thumbnail": "https://picsum.photos/seed/threecups/400/300",
+    "category": "Puzzle"
   },
   {
     "id": "geometry-game",
     "title": "Geometry Game",
     "url": "https://storage.y8.com/y8-studio/unity_webgl/gamosoftstudios/2025_1_GeometryGame_y8_16June_2/index.html?key=y8&value=default",
-    "thumbnail": "https://picsum.photos/seed/geometry/400/300"
+    "thumbnail": "https://picsum.photos/seed/geometry/400/300",
+    "category": "Arcade"
   },
   {
     "id": "jetpack-fighter",
     "title": "Jetpack Fighter",
     "url": "https://storage.y8.com/y8-studio/unity/akeemywka/jatpack_fighter/?key=y8&ratio_tolerant=true&value=default",
-    "thumbnail": "https://picsum.photos/seed/jetpack/400/300"
+    "thumbnail": "https://picsum.photos/seed/jetpack/400/300",
+    "category": "Action"
   },
   {
     "id": "stack-blocks",
     "title": "Stack the Blocks",
     "url": "https://storage.y8.com/y8-studio/unity_webgl/danyelmasry/stack-the-blocks/?key=y8&value=default",
-    "thumbnail": "https://picsum.photos/seed/stackblocks/400/300"
+    "thumbnail": "https://picsum.photos/seed/stackblocks/400/300",
+    "category": "Puzzle"
   },
   {
     "id": "grand-vegas-simulator",
     "title": "Grand Vegas Simulator",
     "url": "https://storage.y8.com/y8-studio/unity_webgl/gamosoftstudios/y8_GrandVegasSimulator_y8_32bt_1_0/index.html?key=y8&value=default",
-    "thumbnail": "https://picsum.photos/seed/vegas/400/300"
+    "thumbnail": "https://picsum.photos/seed/vegas/400/300",
+    "category": "Simulation"
   },
   {
     "id": "moto-x3m-2",
     "title": "Moto X3M 2",
     "url": "https://storage.y8.com/y8-studio/html5/madpuffers/MotoX3M_2_new/?key=2365427&value=101993",
-    "thumbnail": "https://picsum.photos/seed/moto2/400/300"
+    "thumbnail": "https://picsum.photos/seed/moto2/400/300",
+    "category": "Racing"
   },
   {
     "id": "car-crush",
     "title": "Car Crush Realistic Destruction",
     "url": "https://storage.y8.com/y8-studio/unity_webgl/Playgama/car_crush_realistic_destruction/?key=y8&value=default",
-    "thumbnail": "https://picsum.photos/seed/carcrush/400/300"
+    "thumbnail": "https://picsum.photos/seed/carcrush/400/300",
+    "category": "Simulation"
   },
   {
     "id": "melon-maker",
     "title": "Melon Maker Fruit",
     "url": "https://storage.y8.com/y8-studio/unity_webgl/Playgama/melon_maker_fruit/?key=y8&value=default",
-    "thumbnail": "https://picsum.photos/seed/melon/400/300"
+    "thumbnail": "https://picsum.photos/seed/melon/400/300",
+    "category": "Puzzle"
   },
   {
     "id": "save-doge-2",
     "title": "Save the Doge 2",
     "url": "https://storage.y8.com/y8-studio/html5/sidvariya/save_the_doge_2/?key=y8&value=default",
-    "thumbnail": "https://picsum.photos/seed/savedoge/400/300"
+    "thumbnail": "https://picsum.photos/seed/savedoge/400/300",
+    "category": "Puzzle"
   },
   {
     "id": "my-parking-lot",
     "title": "My Parking Lot",
     "url": "https://storage.y8.com/y8-studio/html5/toni/myparkinglot_v3/?key=y8&value=default",
-    "thumbnail": "https://picsum.photos/seed/parking/400/300"
+    "thumbnail": "https://picsum.photos/seed/parking/400/300",
+    "category": "Puzzle"
   },
   {
     "id": "master-chess",
     "title": "Master Chess",
     "url": "https://storage.y8.com/y8-studio/html5/Gani/master_chess/?key=y8&value=default",
-    "thumbnail": "https://picsum.photos/seed/chess/400/300"
+    "thumbnail": "https://picsum.photos/seed/chess/400/300",
+    "category": "Strategy"
   },
   {
     "id": "skyblock-3d",
     "title": "Skyblock 3D Survival",
     "url": "https://storage.y8.com/y8-studio/html5/Playgama/skyblock_3d_survival/?key=y8&value=default",
-    "thumbnail": "https://picsum.photos/seed/skyblock/400/300"
+    "thumbnail": "https://picsum.photos/seed/skyblock/400/300",
+    "category": "Adventure"
   },
   {
     "id": "among-us-online",
     "title": "Among Us Online",
     "url": "https://storage.y8.com/y8-studio/html5/fbkgames/among-us-online_v2/?key=y8&value=default",
-    "thumbnail": "https://picsum.photos/seed/amongus/400/300"
+    "thumbnail": "https://picsum.photos/seed/amongus/400/300",
+    "category": "Strategy"
   },
   {
     "id": "police-cop-driver",
     "title": "Police Cop Driver Simulator 3",
     "url": "https://storage.y8.com/y8-studio/unity/Fog/policecopdriversimulator3/?key=8891790&value=180288",
-    "thumbnail": "https://picsum.photos/seed/police/400/300"
+    "thumbnail": "https://picsum.photos/seed/police/400/300",
+    "category": "Simulation"
   }
 ]

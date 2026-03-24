@@ -1,12 +1,17 @@
 import { useState, useRef } from 'react';
-import { Gamepad2, X, Maximize2, Search, Mail } from 'lucide-react';
+import { Gamepad2, X, Maximize2, Search, Send } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import gamesData from './games.json';
 
 export default function App() {
   const [selectedGame, setSelectedGame] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
+  const [requestGameName, setRequestGameName] = useState('');
   const iframeContainerRef = useRef(null);
+
+  const categories = ['All', ...new Set(gamesData.map(game => game.category))];
 
   const handleFullscreen = () => {
     if (iframeContainerRef.current) {
@@ -20,14 +25,25 @@ export default function App() {
     }
   };
 
-  const filteredGames = gamesData.filter(game =>
-    game.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredGames = gamesData.filter(game => {
+    const matchesSearch = game.title.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory = selectedCategory === 'All' || game.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
 
-  const requestEmail = 'amay@bushfield.co.uk';
-  const requestSubject = encodeURIComponent('Game Request - OBA Unblocked Games');
-  const requestBody = encodeURIComponent('I would like to request the following game:\n\nGame Name: \nGame URL (if known): ');
-  const mailtoUrl = `mailto:${requestEmail}?subject=${requestSubject}&body=${requestBody}`;
+  const handleSendRequest = (e) => {
+    e.preventDefault();
+    const requestEmail = 'amay@bushfield.co.uk';
+    const subject = encodeURIComponent(`Game Request: ${requestGameName}`);
+    const body = encodeURIComponent(`I would like to request the following game:\n\nGame Name: ${requestGameName}\n\nSent from OBA Unblocked Games.`);
+    
+    // Outlook Web Compose URL
+    const outlookUrl = `https://outlook.office.com/mail/deeplink/compose?to=${requestEmail}&subject=${subject}&body=${body}`;
+    
+    window.open(outlookUrl, '_blank');
+    setIsRequestModalOpen(false);
+    setRequestGameName('');
+  };
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-purple-500 selection:text-white">
@@ -57,15 +73,12 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-4 text-sm font-medium text-white/60">
-            <button className="hover:text-white transition-colors cursor-pointer">Popular</button>
-            <button className="hover:text-white transition-colors cursor-pointer">New</button>
-            <a 
-              href={mailtoUrl}
-              className="flex items-center gap-1.5 bg-purple-600/20 hover:bg-purple-600 text-purple-400 hover:text-white px-3 py-1.5 rounded-full transition-all cursor-pointer border border-purple-500/30 no-underline"
+            <button 
+              onClick={() => setIsRequestModalOpen(true)}
+              className="bg-purple-600 hover:bg-purple-500 text-white px-4 py-2 rounded-full transition-all cursor-pointer font-bold shadow-[0_0_15px_rgba(147,51,234,0.4)] flex items-center gap-2"
             >
-              <Mail className="w-3.5 h-3.5" />
               Request Game
-            </a>
+            </button>
           </div>
         </div>
       </nav>
@@ -89,6 +102,23 @@ export default function App() {
 
       {/* Games Grid */}
       <main className="max-w-7xl mx-auto px-4 pb-24">
+        {/* Category Filters */}
+        <div className="flex items-center gap-2 mb-12 overflow-x-auto pb-4 no-scrollbar">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap cursor-pointer border ${
+                selectedCategory === category
+                  ? 'bg-purple-600 border-purple-500 text-white shadow-[0_0_20px_rgba(147,51,234,0.3)]'
+                  : 'bg-white/5 border-white/10 text-white/60 hover:bg-white/10 hover:text-white hover:border-white/20'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredGames.map((game, index) => (
             <motion.div
@@ -130,6 +160,61 @@ export default function App() {
 
       {/* Game Modal */}
       <AnimatePresence>
+        {isRequestModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="w-full max-w-md bg-[#111] rounded-3xl p-8 border border-white/10 shadow-2xl relative"
+            >
+              <button
+                onClick={() => setIsRequestModalOpen(false)}
+                className="absolute top-4 right-4 p-2 hover:bg-white/10 rounded-full transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              
+              <div className="text-center mb-8">
+                <div className="w-16 h-16 bg-purple-600/20 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-purple-500/30">
+                  <Send className="w-8 h-8 text-purple-500" />
+                </div>
+                <h2 className="text-2xl font-bold mb-2">Request a Game</h2>
+                <p className="text-white/40 text-sm">Tell us what you want to play next!</p>
+              </div>
+
+              <form onSubmit={handleSendRequest} className="space-y-6">
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-white/40 mb-2 ml-1">
+                    Game Name
+                  </label>
+                  <input
+                    autoFocus
+                    type="text"
+                    required
+                    placeholder="e.g. Minecraft, Slope, etc."
+                    value={requestGameName}
+                    onChange={(e) => setRequestGameName(e.target.value)}
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 px-6 focus:outline-none focus:border-purple-500/50 focus:bg-white/10 transition-all"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold py-4 rounded-2xl transition-all shadow-[0_0_20px_rgba(147,51,234,0.3)] flex items-center justify-center gap-2 group"
+                >
+                  Send Request
+                  <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </form>
+            </motion.div>
+          </motion.div>
+        )}
+
         {selectedGame && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -194,7 +279,12 @@ export default function App() {
           <div className="flex gap-8 text-sm text-white/40">
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href={mailtoUrl} className="hover:text-white transition-colors cursor-pointer no-underline">Request a Game</a>
+            <button 
+              onClick={() => setIsRequestModalOpen(true)}
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              Request a Game
+            </button>
             <a href="#" className="hover:text-white transition-colors">Contact Us</a>
           </div>
           <p className="text-sm text-white/20">© 2026 Unblocked Games Hub. All rights reserved.</p>
